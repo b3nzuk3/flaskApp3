@@ -60,3 +60,9 @@ class PostForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     content = TextAreaField('Content', validators=[DataRequired()])
     submit = SubmitField('Post')
+
+class CommentForm(FlaskForm):
+    content = StringField('Add a comment', validators=[DataRequired()])
+    upvote = BooleanField('Upvote')
+    downvote = BooleanField('Downvote')
+    submit = SubmitField('Comment')

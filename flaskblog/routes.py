@@ -3,8 +3,8 @@ import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
 from flaskblog import app, db, bcrypt
-from flaskblog.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
-from flaskblog.models import User, Post
+from flaskblog.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, CommentForm
+from flaskblog.models import User, Post, Comments
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -104,10 +104,30 @@ def new_post():
         return redirect(url_for('home'))
     return render_template('new_post.html', legend ='New pitch', form=form)
 
-@app.route("/post/<int:post_id>")
+@app.route("/post/<int:post_id>" , methods=['GET', 'POST'])
 def post(post_id):
     post = Post.query.get_or_404(post_id)
-    return render_template("post.html", title = post.title, post= post)
+    comments = Comments.query.order_by(Comments.date_posted.desc()).filter_by(post_id=post_id)
+    form = CommentForm()
+    if form.validate_on_submit():
+      if form.upvote.data:
+        recent = post.likes
+        new = recent + 1
+        post.likes = new
+        db.session.commit()
+
+      if form.downvote.data:
+        recent = post.dislikes
+        new = recent + 1
+        post.dislikes = new
+        db.session.commit()
+
+      comment = Comments(content=form.content.data, user_comments= current_user, post_id=post_id)
+      db.session.add(comment)
+      db.session.commit()
+      flash('You have commented', 'primary')
+      return redirect(url_for('post', post_id=post_id))
+    return render_template('post.html', post=post, form=form, comments=comments)
 
 @app.route("/post/<int:post_id>/update", methods=['GET', 'POST'])
 @login_required
@@ -136,4 +156,4 @@ def delete_post(post_id):
     db.session.delete(post)
     db.session.commit()
     flash("Your post has been deleted!", 'success')
-    return redirect(url_for('home'))    
+    return redirect(url_for('home'))
