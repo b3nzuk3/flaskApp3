@@ -1,25 +1,28 @@
 <header class="site-header">
-  <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand mr-4" href="/">Flask Blog</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="mx-auto order-0">
+        <a class="navbar-brand" href="#"><img src="https://placeholder.pics/svg/150x50/C2E3FF-A6A6A6/020C0F/Pitches" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
       <div class="collapse navbar-collapse" id="navbarToggle">
         <div class="navbar-nav mr-auto">
           <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
-          <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
         </div>
         <!-- Navbar Right Side -->
-        <div class="navbar-nav">
-          {% if current_user.is_authenticated %}
-          <a class="nav-item nav-link" href="{{url_for('new_post')}}">New post</a>
-          <a class="nav-item nav-link" href="{{url_for('logout')}}">Logout</a>
-          <a class="nav-item nav-link" href="{{url_for('account')}}">Account</a>
-          {% else %}
-            <a class="nav-item nav-link" href="{{url_for('login')}}">Login</a>
-            <a class="nav-item nav-link" href="{{url_for('register')}}">Register</a>
-          {% endif %}
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+          <ul class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
+            {% if current_user.is_authenticated %}
+            <button class="nav-link"><a style="color:#fff;text-decoration:none" href="{{url_for('new_post')}}" >New post</a></button>
+            <button class="nav-link"><a style="color:#fff;text-decoration:none" href="{{url_for('account')}}">Account</a></button>
+            <button class="nav-link"><a style="color:#B20600;text-decoration:none" href="{{url_for('logout')}}">Logout</a></button>
+            {% else %}
+            <button class="nav-link"><a style="color:#4E944F;text-decoration:none" href="{{url_for('login')}}"">Login</a></button>
+            <button class="nav-link"><a style="color:#fff;text-decoration:none" href="{{url_for('register')}}"">Register</a></button>
+            {% endif %}
+          </ul>
         </div>
       </div>
     </div>
