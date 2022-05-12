@@ -4,11 +4,11 @@ This project was generated with [Python3.10](https://www.python.org/downloads/re
 #### This site is a Pitches site application, May-05-2022
 ## Author
 #### By b3nzuk3
-## Description
-     This is a web application about Pitches. Users are able to login, comment and vote on various pitches.
 
 ![LANDING PAGE](pitches.png)
 
+## Description
+     This is a web application about Pitches. Users are able to login, comment and vote on various pitches.
 
 ## Behavior Driven Development
       1. When the app is loaded loaded it first gets info from the database to display available Pitches.
