@@ -5,13 +5,13 @@ This project was generated with [Python3.10](https://www.python.org/downloads/re
 ## Author
 #### By b3nzuk3
 ## Description
-     This i sa web application about Pitches
+     This is a web application about Pitches. Users are able to login, comment and vote on various pitches.
 
 ## Behavior Driven Development
-      1. When the app is loaded it first make a get request to the News Api.
-      2. It then process the results and stores it in a list.
-      3. The content is then rendered in the templates using placeholders and hence able to be displayed in the page.
-      4. All this is made possible with in built classes and functions.
+      1. When the app is loaded loaded it first gets info from the database to display available Pitches.
+      2. It then process the results and gets rendered in the Home template.
+      3. If the user requires to edit a post they can change it, only authors of a post are able to change the Post.
+      4. Users can change account details and profile pic in the account page.
       5. The app is pushed to heroku where it will be available for display globally unlike before where it was visible locally.
       
 ## Setup/Installation Requirements
