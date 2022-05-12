@@ -1,11 +1,11 @@
 # Pitches
 
 This project was generated with [Python3.10](https://www.python.org/downloads/release/python-3100/) 
-#### This site is a Nes site application, May-05-2022
+#### This site is a Pitches site application, May-05-2022
 ## Author
 #### By b3nzuk3
 ## Description
-     This is a web application displaying news articles from top leading innovation companies around the world. i.e Google, Tesla and Apple
+     This i sa web application about Pitches
 
 ## Behavior Driven Development
       1. When the app is loaded it first make a get request to the News Api.
