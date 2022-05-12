@@ -1,11 +1,14 @@
 # Pitches
 
-This project was generated with [Python3.10](https://www.python.org/downloads/release/python-3100/) 
+This project was generated with [Python3.10](https://www.python.org/downloads/release/python-3100/)
 #### This site is a Pitches site application, May-05-2022
 ## Author
 #### By b3nzuk3
 ## Description
      This is a web application about Pitches. Users are able to login, comment and vote on various pitches.
+
+![LANDING PAGE](pitches.png)
+
 
 ## Behavior Driven Development
       1. When the app is loaded loaded it first gets info from the database to display available Pitches.
@@ -13,7 +16,7 @@ This project was generated with [Python3.10](https://www.python.org/downloads/re
       3. If the user requires to edit a post they can change it, only authors of a post are able to change the Post.
       4. Users can change account details and profile pic in the account page.
       5. The app is pushed to heroku where it will be available for display globally unlike before where it was visible locally.
-      
+
 ## Setup/Installation Requirements
 * No installation is required. You just need to click on the link to load the application.
 * If you want to clone it locally you can follow the running instructions below.
